@@ -53,7 +53,8 @@ module RailsSeeder
     end
   end
 
-  def self.new(name, &block)
+  def self.new(*args, &block)
+    name, arg_names, deps = Rake.application.resolve_args(args, &block)
     task :generate => "generate:#{name}"
 
     unless defined? @@regenerate_defined
@@ -68,7 +69,7 @@ module RailsSeeder
 
     namespace :generate do
       desc "generate #{name}"
-      task name => :environment do
+      task name => [:environment, deps].flatten.compact do
         block.binding.eval("include #{self.name}::Helpers", __FILE__, __LINE__)
         block.call
       end
