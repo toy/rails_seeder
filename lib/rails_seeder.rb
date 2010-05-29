@@ -55,9 +55,12 @@ module RailsSeeder
 
   def self.new(*args, &block)
     name, arg_names, deps = Rake.application.resolve_args(args, &block)
-    task :generate => "generate:#{name}"
 
     unless defined? @@regenerate_defined
+      desc "run all generate tasks"
+      task :generate
+
+      desc "reset db, delete assets and run all generate tasks"
       task :regenerate => 'db:migrate:reset'
       if Rake::Task.task_defined?('assets:delete')
         task :regenerate => 'assets:delete'
@@ -66,6 +69,8 @@ module RailsSeeder
 
       @@regenerate_defined = true
     end
+
+    task :generate => "generate:#{name}"
 
     namespace :generate do
       desc "generate #{name}"
