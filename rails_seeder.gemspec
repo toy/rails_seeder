@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Boba Fat"]
-  s.date = %q{2010-05-16}
+  s.date = %q{2010-05-24}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -20,7 +20,8 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/rails_seeder.rb"
+     "lib/rails_seeder.rb",
+     "rails_seeder.gemspec"
   ]
   s.homepage = %q{http://github.com/toy/rails_seeder}
   s.rdoc_options = ["--charset=UTF-8"]
