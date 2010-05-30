@@ -9,7 +9,11 @@ module RailsSeeder
 
     Range.class_eval do
       def rand
-        first + Kernel.rand(last - first + (exclude_end? ? 0 : 1))
+        if first.is_a?(Integer)
+          first + Kernel.rand(last - first + (exclude_end? ? 0 : 1))
+        else
+          to_a.rand
+        end
       end
     end
 
