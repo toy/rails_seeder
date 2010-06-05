@@ -64,11 +64,13 @@ module RailsSeeder
       desc "run all generate tasks"
       task :generate
 
+      namespace :assets do
+        task :delete
+      end
+
       desc "reset db, delete assets and run all generate tasks"
       task :regenerate => 'db:migrate:reset'
-      if Rake::Task.task_defined?('assets:delete')
-        task :regenerate => 'assets:delete'
-      end
+      task :regenerate => 'assets:delete'
       task :regenerate => :generate
 
       @@regenerate_defined = true
