@@ -50,6 +50,10 @@ module RailsSeeder
     end
 
     Array.class_eval do
+      def rand
+        self[Kernel.rand(length)]
+      end
+
       def shuffled_part(max = nil)
         max ||= length
         sort_by{ Kernel.rand }.slice(0, max.rand)
