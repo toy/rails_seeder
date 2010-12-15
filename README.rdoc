@@ -1,7 +1,0 @@
-= rails_seeder
-
-Rake helper to generate models for testing rails app
-
-== Copyright
-
-Copyright (c) 2010 Boba Fat. See LICENSE for details.
