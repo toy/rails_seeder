@@ -1,3 +1,11 @@
-/coverage/
-/rdoc/
 /pkg/
+
+/doc/
+/rdoc/
+/.yardoc/
+/coverage/
+
+Makefile
+*.o
+*.bundle
+/tmp/
