@@ -7,7 +7,7 @@ begin
     j.name = name
     j.summary = summary
     j.homepage = "http://github.com/toy/#{name}"
-    j.authors = ["Boba Fat"]
+    j.authors = ['Ivan Kuchin']
     j.add_dependency 'rake'
     j.add_dependency 'rails'
     j.add_dependency 'random_text'
